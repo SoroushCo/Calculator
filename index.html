@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Calculator</title>
+</head>
+<body>
+    <h1>Simple Calculator</h1>
+    <input type="text" id="result" disabled>
+    <br>
+    <button onclick="clearDisplay()">C</button>
+    <button onclick="appendToDisplay('7')">7</button>
+    <button onclick="appendToDisplay('8')">8</button>
+    <button onclick="appendToDisplay('9')">9</button>
+    <button onclick="appendToDisplay('+')">+</button>
+    <br>
+    <button onclick="appendToDisplay('4')">4</button>
+    <button onclick="appendToDisplay('5')">5</button>
+    <button onclick="appendToDisplay('6')">6</button>
+    <button onclick="appendToDisplay('-')">-</button>
+    <br>
+    <button onclick="appendToDisplay('1')">1</button>
+    <button onclick="appendToDisplay('2')">2</button>
+    <button onclick="appendToDisplay('3')">3</button>
+    <button onclick="appendToDisplay('*')">*</button>
+    <br>
+    <button onclick="appendToDisplay('0')">0</button>
+    <button onclick="appendToDisplay('.')">.</button>
+    <button onclick="calculateResult()">=</button>
+    <button onclick="appendToDisplay('/')">/</button>
+    <br>
+    <script>
+        function appendToDisplay(value) {
+            document.getElementById("result").value += value;
+        }
+
+        function clearDisplay() {
+            document.getElementById("result").value = "";
+        }
+
+        function calculateResult() {
+            const input = document.getElementById("result").value;
+            try {
+                const result = eval(input); // WARNING: Using 'eval' can be dangerous in a real-world application. For simplicity in this example, we use it, but it is generally discouraged.
+                document.getElementById("result").value = result;
+            } catch (error) {
+                document.getElementById("result").value = "Error";
+            }
+        }
+    </script>
+</body>
+</html>
